@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Browse{% endblock %}
+
+{% block content %}
+<div class="card" style="width: 18rem;">
+    <a href="">
+        <img src="https://image.tmdb.org/t/p/w500/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg" class="card-img-top"
+            alt="movie poster">
+        <div class="card-body">
+            <h4 class="card-title">Toy Story</h4>
+            <p class="card-text">1995, English</p>
+            <p class="card-text text-black-50 fs-6">
+                {% for i in genres%} {{i}}, {% endfor %}
+            </p>
+        </div>
+    </a>
+</div>
+{% endblock %}
