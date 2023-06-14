@@ -1,4 +1,4 @@
-## Screenshot of the Web App
+## Screenshots of the Web App
 
 ![Preview](./previews/preview.png) 
 
@@ -74,7 +74,7 @@ cd Movie-Recommendation
 pip install -r ./requirements.txt
 ```
 
-<b>Before any thing you should create an account in TMDB and paste you API KEY into a .env file</b>
+<b>Before any thing you should create an account in [TMDB](https://developer.themoviedb.org/docs/getting-started) and paste you API KEY into a .env file</b>
 
 ```
 echo "API_KEY=<your_api_key>" > .env
