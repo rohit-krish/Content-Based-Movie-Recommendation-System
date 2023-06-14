@@ -18,12 +18,23 @@
             color: black;
         }
     </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" defer></script>
+    <script src="{{url_for('static',filename='script.js')}}" defer></script>
 </head>
 
 <body class="container bg-dark">
     <nav class="navbar navbar-expand-md">
         <a class="navbar-brand fs-2 text-light" href="#">WatchIt</a>
+        <form class="ms-auto" role="search">
+            <div class="dropdown">
+                <input class="form-control" id="searchInput" type="search" placeholder="Search..." aria-label="Search">
+                <div id="searchDropdown" class="dropdown-menu" aria-labelledby="searchInput"></div>
+            </div>
+        </form>
     </nav>
+
+
     {% block content %}
     {% endblock %}
 </body>

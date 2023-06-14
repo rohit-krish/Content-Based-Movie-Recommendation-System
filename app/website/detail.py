@@ -7,15 +7,15 @@ import pandas as pd
 load_dotenv()
 api_key = environ['API_KEY']
 
-title_id = pd.read_parquet('website/static/title_id.parquet')
+movie_ids = pd.read_parquet('website/static/id_title.parquet', columns=['id'])
 similarity_df = pd.read_parquet('website/static/similarity_df.parquet')
 
 def recommend(id, limit=8):
-    movie_index = title_id[title_id['id'] == int(id)].index[0]
+    movie_index = movie_ids[movie_ids['id'] == int(id)].index[0]
     distances = similarity_df.iloc[movie_index].values
     movies_list = sorted(list(enumerate(distances)), reverse=True, key=lambda x: x[1])[1:limit+1]
 
-    return [title_id.iloc[m[0]].id for m in movies_list]
+    return [movie_ids.iloc[m[0]].id for m in movies_list]
 
 
 detail = Blueprint('detail', __name__)
@@ -51,10 +51,10 @@ def home():
         {'name': c['name'], 'profile_path': 'https://image.tmdb.org/t/p/w500'+c['profile_path']} for c in actors
     ]
 
-    print('meta_data loaded', '***')
+    # print('meta_data loaded', '***')
 
     recommendations = recommend(movie_id)
-    print('got recommendations', '***')
+    # print('got recommendations', '***')
 
     data['recommendation_data'] = []
 
