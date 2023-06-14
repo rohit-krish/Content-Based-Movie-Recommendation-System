@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 from os import environ
 import requests
 import pandas as pd
-import pickle
 
 load_dotenv()
 api_key = environ['API_KEY']

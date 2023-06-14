@@ -33,42 +33,46 @@
 
 </head>
 
-<body class="bg-dark container">
-    <nav class="navbar navbar-expand-md">
-        <p class="navbar-brand text-white-50 fs-2">WatchIt</p>
-        <div class="collapse navbar-collapse show placeholder placeholder-wave">
-            <form role="search" class="ms-auto" id="form">
-                <div class="dropdown">
-                    <input class="form-control" placeholder="Search..." disabled>
-                </div>
-            </form>
+<body class="bg-dark">
+    <nav class="navbar navbar-expand-md sticky-top" style="margin-top: 0; padding-top: 0;">
+        <div class="container bg-dark">
+            <p class="navbar-brand text-white-50 fs-2">WatchIt</p>
+            <div class="collapse navbar-collapse show placeholder placeholder-wave">
+                <form role="search" class="ms-auto" id="form">
+                    <div class="dropdown">
+                        <input class="form-control" placeholder="Search..." disabled>
+                    </div>
+                </form>
+            </div>
         </div>
     </nav>
 
-    <h2 class="text-white-50 fw-bold pt-3 pb-3">Popular Movies</h2>
+    <div class="container">
+        <h2 class="text-white-50 fw-bold pt-3 pb-3">Popular Movies</h2>
 
-    {% for i in range(2) %}
-    <div class="row text-white-50">
-        {% for j in range(4) %}
-        <div class="col-6 col-lg-3 pb-2 pt-2">
-            <div class="card text-bg-dark placeholder-wave">
-                <div class="placeholder" style="height: 200px;"> </div>
-                <div class="card-body text-white-50">
-                    <h4 class="card-title">
-                        <span class="placeholder col-8"></span>
-                    </h4>
-                    <p class="card-text">
-                        <span class="placeholder col-3"></span>
-                    </p>
-                    <p class="card-text fs-6">
-                        <span class="placeholder col-10"></span>
-                    </p>
+        {% for i in range(2) %}
+        <div class="row text-white-50">
+            {% for j in range(4) %}
+            <div class="col-6 col-lg-3 pb-2 pt-2">
+                <div class="card text-bg-dark placeholder-wave">
+                    <div class="placeholder" style="height: 200px;"> </div>
+                    <div class="card-body text-white-50">
+                        <h4 class="card-title">
+                            <span class="placeholder col-8"></span>
+                        </h4>
+                        <p class="card-text">
+                            <span class="placeholder col-3"></span>
+                        </p>
+                        <p class="card-text fs-6">
+                            <span class="placeholder col-10"></span>
+                        </p>
+                    </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
         {% endfor %}
     </div>
-    {% endfor %}
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {

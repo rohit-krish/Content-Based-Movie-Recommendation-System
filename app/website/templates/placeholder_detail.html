@@ -33,60 +33,65 @@
 </head>
 
 <body class="bg-dark container">
-    <nav class="navbar navbar-expand-md">
-        <p class="navbar-brand text-white-50 fs-2">WatchIt</p>
-        <div class="collapse navbar-collapse show placeholder placeholder-wave">
-            <form role="search" class="ms-auto" id="form">
-                <div class="dropdown">
-                    <input class="form-control" placeholder="Search..." disabled>
-                </div>
-            </form>
+    <nav class="navbar navbar-expand-md sticky-top" style="margin-top: 0; padding-top: 0;">
+        <div class="container bg-dark">
+            <p class="navbar-brand text-white-50 fs-2">WatchIt</p>
+            <div class="collapse navbar-collapse show placeholder placeholder-wave">
+                <form role="search" class="ms-auto" id="form">
+                    <div class="dropdown">
+                        <input class="form-control" placeholder="Search..." disabled>
+                    </div>
+                </form>
+            </div>
         </div>
     </nav>
 
-    <div class="text-white-50">
-        <div class="row">
-            <div class="placeholder placeholder-wave col-sm-6 col-md-5 col-lg-3 pb-3" style="height: 450px;"></div>
-            <div class="col">
-                <h1><span class="placeholder placeholder-wave col-7"></span></h1>
-                <h6 class="text-white-50"><span class="placeholder placeholder-wave col-1"></span></h6>
-                <h5 class="text-white-50"><span class="placeholder placeholder-wave col-5"></span></h5>
-                <h2 class="pt-4"><span class="placeholder placeholder-wave col-3"></span></h2>
-                <h2 class="pt-4"><span class="placeholder placeholder-wave col-2"></span></h2>
-                <h6><span class="placeholder placeholder-wave col-12"></span></h6>
-                <h6><span class="placeholder placeholder-wave col-8"></span></h6>
-                <h2 class="pt-4"><span class="placeholder placeholder-wave col-3"></span></h2>
-                <h5 class="placeholder placeholder-wave col-4"></h5>
-            </div>
-        </div>
-    </div>
-
-    <div class="row pt-5 text-white-50">
-        <h1>Starcast</h1>
-        <div class="row">
-            {% for i in range(6) %}
-            <div class="card text-bg-dark col-6 col-md-4 col-lg-2 pb-3 text-white-50">
-                <div><span style="width: 100%; height: 250px;" class="placeholder placeholder-wave col-7"></span></div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-
-    <div class="row pt-5 text-white-50">
-        <h1>Recommendations</h1>
-        <div class="row">
-            {% for i in range(4) %}
-            <div class="col-6 col-lg-3 pb-3">
-                <div class="card text-bg-dark text-white-50" style="box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);">
-                    <h1><span class="placeholder placeholder-wave" style="width: 100%; height: 400px;"></span></h1>
-                    <div class="card-body">
-                        <h5 class="card-title"><span class="placeholder placehoder-wave col-8"></span></h5>
-                        <p class="card-text"><span class="placeholder placeholder-wave col-4"></span></p>
-                        <h6 class="card-text text-white-50 placeholder placeholder-wave col-11"></h6>
-                    </div>
+    <div class="container">
+        <div class="text-white-50">
+            <div class="row">
+                <div class="placeholder placeholder-wave col-sm-6 col-md-5 col-lg-3 pb-3" style="height: 450px;"></div>
+                <div class="col">
+                    <h1><span class="placeholder placeholder-wave col-7"></span></h1>
+                    <h6 class="text-white-50"><span class="placeholder placeholder-wave col-1"></span></h6>
+                    <h5 class="text-white-50"><span class="placeholder placeholder-wave col-5"></span></h5>
+                    <h2 class="pt-4"><span class="placeholder placeholder-wave col-3"></span></h2>
+                    <h2 class="pt-4"><span class="placeholder placeholder-wave col-2"></span></h2>
+                    <h6><span class="placeholder placeholder-wave col-12"></span></h6>
+                    <h6><span class="placeholder placeholder-wave col-8"></span></h6>
+                    <h2 class="pt-4"><span class="placeholder placeholder-wave col-3"></span></h2>
+                    <h5 class="placeholder placeholder-wave col-4"></h5>
                 </div>
             </div>
-            {% endfor %}
+        </div>
+
+        <div class="row pt-5 text-white-50">
+            <h1>Starcast</h1>
+            <div class="row">
+                {% for i in range(6) %}
+                <div class="card text-bg-dark col-6 col-md-4 col-lg-2 pb-3 text-white-50">
+                    <div><span style="width: 100%; height: 250px;" class="placeholder placeholder-wave col-7"></span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="row pt-5 text-white-50">
+            <h1>Recommendations</h1>
+            <div class="row">
+                {% for i in range(4) %}
+                <div class="col-6 col-lg-3 pb-3">
+                    <div class="card text-bg-dark text-white-50" style="box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);">
+                        <h1><span class="placeholder placeholder-wave" style="width: 100%; height: 400px;"></span></h1>
+                        <div class="card-body">
+                            <h5 class="card-title"><span class="placeholder placehoder-wave col-8"></span></h5>
+                            <p class="card-text"><span class="placeholder placeholder-wave col-4"></span></p>
+                            <h6 class="card-text text-white-50 placeholder placeholder-wave col-11"></h6>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 
