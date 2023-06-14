@@ -5,7 +5,8 @@ import requests
 import random
 
 
-load_dotenv('/home/rohit/Desktop/Machine Learning/Projects/Movie-Recommendation-System/.env')
+load_dotenv(
+    '/home/rohit/Desktop/Machine Learning/Projects/Movie-Recommendation-System/.env')
 api_key = environ['API_KEY']
 
 browse = Blueprint('browse', __name__)
@@ -15,13 +16,19 @@ popular_50 = [
     232672, 198663, 862, 559, 1865, 14836, 8587, 22803, 38757, 2062, 106, 50014, 106646, 293660, 118340, 809, 22, 14160, 37165, 285, 99861, 425, 177572, 18785, 10198
 ]
 
-@browse.route('/')
+
+@browse.route('/', methods=['GET'])
 def reroute():
     return redirect('/browse')
 
 
-@browse.route('/browse')
+@browse.route('/browse', methods=['GET'])
 def home():
+    return render_template('placeholder_browse.html')
+
+
+@browse.route('/get_browse_data', methods=['POST'])
+def get_browse_html_data():
     data = []
     for id in random.sample(popular_50, 20):
         url = f'http://api.themoviedb.org/3/movie/{id}?api_key={api_key}&language=en-US'
@@ -35,5 +42,4 @@ def home():
             'poster_path': 'https://image.tmdb.org/t/p/w500'+resp.get('poster_path')
         })
 
-    # print(data)
-    return render_template('browse.html', data=data)
+    return {'data': render_template('browse.html', data=data)}

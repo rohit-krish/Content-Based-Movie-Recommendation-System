@@ -76,9 +76,14 @@ def get_data(movie_id):
 detail = Blueprint('detail', __name__)
 
 
-@detail.route('/detail')
+@detail.route('/detail', methods=['GET'])
 def home():
+    return render_template('placeholder_detail.html', id=request.args.get('id'))
+
+
+@detail.route('/get_detail_data', methods=['GET'])
+def get_detail_html_data():
     data = get_data(request.args.get('id'))
     # data = pickle.load(open('website/static/sample_detail_data.pkl', 'rb'))
 
-    return render_template('detail.html', data=data)
+    return {'data': render_template('detail.html', data=data)}
