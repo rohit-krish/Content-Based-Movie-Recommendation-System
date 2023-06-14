@@ -58,10 +58,10 @@ Some other ways include <b>K-Nearest-Neighbour</b> and <b>ANNOY(Approximate Near
 
 ## Data Links
 
-|file name            |about                           |link          |
-|---------------------|--------------------------------|--------------|
-|similarity_df.parquet|calculated similarity data frame|              |
-|combined.parquet     |collected data                  |              |
+|file name            |description                     |link                                                                                                 |
+|---------------------|--------------------------------|-----------------------------------------------------------------------------------------------------|
+|similarity_df.parquet|calculated similarity data frame|https://github.com/rohit-krish/Movie-Recommendation/raw/main/app/website/static/similarity_df.parquet|
+|combined.parquet     |collected data                  |https://github.com/rohit-krish/Movie-Recommendation/raw/main/data/combined.parquet                   |
 
 ## How to use?
 
