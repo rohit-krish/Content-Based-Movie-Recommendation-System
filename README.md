@@ -1,6 +1,6 @@
 ## TODO
 
-- [ ] increase the initial movie options
+- [x] increase the initial movie options
 - [x] implement the search feature
 - [ ] tryout the ANNOY algorithm from Spotify
 - [x] search box width problem in mobile phone size

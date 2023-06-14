@@ -3,18 +3,17 @@ from dotenv import load_dotenv
 from os import environ
 import requests
 import random
+import pickle
 
 
 load_dotenv(
-    '/home/rohit/Desktop/Machine Learning/Projects/Movie-Recommendation-System/.env')
+    '/home/rohit/Desktop/Machine Learning/Projects/Movie-Recommendation-System/.env'
+)
 api_key = environ['API_KEY']
 
 browse = Blueprint('browse', __name__)
 
-popular_50 = [
-    91314, 8869, 19995, 411, 102382, 296096, 671, 168259, 1858, 672, 557, 673, 674, 157336, 767, 68718, 1930, 76203, 597, 675, 585, 24428, 216015, 808, 238,
-    232672, 198663, 862, 559, 1865, 14836, 8587, 22803, 38757, 2062, 106, 50014, 106646, 293660, 118340, 809, 22, 14160, 37165, 285, 99861, 425, 177572, 18785, 10198
-]
+popular_369  = pickle.load(open('website/static/popular_369.pkl', 'rb'))[:20]
 
 
 @browse.route('/', methods=['GET'])
@@ -30,7 +29,7 @@ def home():
 @browse.route('/get_browse_data', methods=['POST'])
 def get_browse_html_data():
     data = []
-    for id in random.sample(popular_50, 20):
+    for id in random.sample(popular_369, 20):
         url = f'http://api.themoviedb.org/3/movie/{id}?api_key={api_key}&language=en-US'
         resp = requests.get(url).json()
         data.append({
