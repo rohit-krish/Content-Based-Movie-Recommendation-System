@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from os import environ
 import requests
 import pandas as pd
+import pickle
 
 load_dotenv()
 api_key = environ['API_KEY']
@@ -10,20 +11,18 @@ api_key = environ['API_KEY']
 movie_ids = pd.read_parquet('website/static/id_title.parquet', columns=['id'])
 similarity_df = pd.read_parquet('website/static/similarity_df.parquet')
 
+
 def recommend(id, limit=8):
     movie_index = movie_ids[movie_ids['id'] == int(id)].index[0]
     distances = similarity_df.iloc[movie_index].values
-    movies_list = sorted(list(enumerate(distances)), reverse=True, key=lambda x: x[1])[1:limit+1]
+    movies_list = sorted(
+        list(enumerate(distances)), reverse=True, key=lambda x: x[1]
+    )[1:limit+1]
 
     return [movie_ids.iloc[m[0]].id for m in movies_list]
 
 
-detail = Blueprint('detail', __name__)
-
-
-@detail.route('/detail')
-def home():
-    movie_id = request.args.get('id')
+def get_data(movie_id):
     meta_url = f'http://api.themoviedb.org/3/movie/{movie_id}?api_key={api_key}&language=en-US'
     meta_resp = requests.get(meta_url).json()
     data = {
@@ -70,5 +69,16 @@ def home():
             'language': recom_resp.get('original_language').capitalize(),
             'genres': [g['name'] for g in recom_resp.get('genres')]
         })
+
+    return data
+
+
+detail = Blueprint('detail', __name__)
+
+
+@detail.route('/detail')
+def home():
+    data = get_data(request.args.get('id'))
+    # data = pickle.load(open('website/static/sample_detail_data.pkl', 'rb'))
 
     return render_template('detail.html', data=data)

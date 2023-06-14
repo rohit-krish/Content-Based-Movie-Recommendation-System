@@ -35,14 +35,12 @@
         <h1>Starcast</h1>
         <div class="row">
             {% for c in data['cast'] %}
-            <div class="col-sm-6 col-md-4 col-lg-2 pb-3">
-                <div class="card text-bg-dark">
-                    <img src="{{c['profile_path']}}" class="card-img" alt="...">
-                    <div class="card-img-overlay d-flex align-items-end">
-                        <h5 class="card-title" style="text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);">
-                            {{c['name']}}
-                        </h5>
-                    </div>
+            <div class="card text-bg-dark col-6 col-md-4 col-lg-2 pb-3">
+                <img src="{{c['profile_path']}}" class="card-img" alt="...">
+                <div class="card-img-overlay d-flex align-items-end">
+                    <h5 class="card-title" style="text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);">
+                        {{c['name']}}
+                    </h5>
                 </div>
             </div>
             {% endfor %}
@@ -53,16 +51,16 @@
         <h1>Recommendations</h1>
         <div class="row">
             {% for r in data['recommendation_data'] %}
-            <div class="col-sm-6 col-lg-3 pb-3">
+            <div class="col-6 col-lg-3 pb-3">
                 <a href="/detail?id={{r['id']}}" target="_blank">
                     <div class="card text-bg-dark" style="box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);">
                         <img src="{{r['poster_path']}}" class="card-img-top" alt="movie poster">
                         <div class="card-body">
-                            <h4 class="card-title">{{r['title']}}</h4>
+                            <h5 class="card-title">{{r['title']}}</h5>
                             <p class="card-text">{{r['year']}}, {{r['language']}}</p>
-                            <p class="card-text text-white-50 fs-6">
+                            <h6 class="card-text text-white-50">
                                 {% for g in r.get('genres') %} {{g}}, {% endfor %}
-                            </p>
+                            </h6>
                         </div>
                     </div>
                 </a>

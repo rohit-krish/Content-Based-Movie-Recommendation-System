@@ -2,35 +2,16 @@ $(document).ready(function () {
     var searchInput = document.getElementById('searchInput');
     var searchDropdown = document.getElementById('searchDropdown');
 
-    var animationDuration = 200;
-    var maxWidth = 300;
     var maxHeight = window.innerHeight - 100;
 
-    // Set the initial width of the input element
-    var initialWidth = $('#searchInput').outerWidth();
-    $('#searchInput').css('width', '100%');
-
-    // Increase the input width to the maximum when clicked
-    $('#searchInput').on('click', function () {
-        $(this).animate({ width: maxWidth }, {
-            duration: animationDuration,
-            progress: function () {
-                // Update the dropdown menu width during the animation
-                searchDropdown.style.width = searchInput.offsetWidth + 'px';
-            }
-        });
-    });
-
-    // Set initial width and max-height of the dropdown menu
+    // Set initial max-height of the dropdown menu
     $('#searchDropdown').css({
-        width: $('#searchInput').outerWidth(),
         'max-height': maxHeight + 'px'
     });
 
-    // Update the dropdown menu width and max-height when the window is resized
+    // Update the dropdown menu max-height when the window is resized
     $(window).on('resize', function () {
         $('#searchDropdown').css({
-            width: $('#searchInput').outerWidth(),
             'max-height': maxHeight + 'px'
         });
     });
@@ -45,12 +26,6 @@ $(document).ready(function () {
         var target = $(event.target);
         if (!target.closest('.dropdown').length) {
             $('#searchDropdown').hide();
-
-            // Reset the input width when clicking outside
-            $('#searchInput').animate({ width: initialWidth }, animationDuration, function () {
-                // Reset the dropdown menu width after the animation
-                searchDropdown.style.width = searchInput.offsetWidth + 'px';
-            });
         }
     });
 

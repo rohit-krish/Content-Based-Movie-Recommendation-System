@@ -1,2 +1,4 @@
 .env
 data/*
+app/website/static/sample_detail_data.pkl
+app/website/__pycache__

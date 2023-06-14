@@ -4,5 +4,5 @@
 - [ ] increase the initial movie options
 - [x] implement the search feature
 - [ ] tryout the ANNOY algorithm from Spotify
-- [ ] search box width problem in mobile phone size
-- [ ] pictures in mobile phone size is too large
+- [x] search box width problem in mobile phone size
+- [x] pictures in mobile phone size is too large
