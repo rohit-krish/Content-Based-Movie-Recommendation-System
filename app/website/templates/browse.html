@@ -8,7 +8,7 @@
 {% for i in range(5) %}
 <div class="row text-white">
     {% for j in range(4) %}
-    <div class="col-sm-6 col-lg-3 pb-5">
+    <div class="col-6 col-lg-3 pb-5">
         <a href="/detail?id={{ data[i*4 + j].get('id') }}" target="_blank">
             <div class="card text-bg-dark" style="box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);">
                 <img src="{{data[i*4 + j].get('poster_path')}}" class="card-img-top" alt="movie poster">
