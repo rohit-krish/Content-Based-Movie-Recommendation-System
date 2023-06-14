@@ -6,3 +6,4 @@
 - [ ] tryout the ANNOY algorithm from Spotify
 - [x] search box width problem in mobile phone size
 - [x] pictures in mobile phone size is too large
+- [ ] add placeholders before loading the complete UI
