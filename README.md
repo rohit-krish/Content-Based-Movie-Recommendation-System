@@ -1,7 +1,7 @@
 # Content-Based Movie Recommendation
 ## Screencast of the project
 
-https://youtu.be/Z4OqWqt-nao
+<a href="https://youtu.be/Z4OqWqt-nao" target="_blank">https://youtu.be/Z4OqWqt-nao</a>
 
 ## Screenshots of the Web App
 
