@@ -6,9 +6,7 @@ import random
 import pickle
 
 
-load_dotenv(
-    '/home/rohit/Desktop/Machine Learning/Projects/Movie-Recommendation-System/.env'
-)
+load_dotenv('../.env') # for this to be working, your pwd should be inside the app directory.
 api_key = environ['API_KEY']
 
 browse = Blueprint('browse', __name__)
