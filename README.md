@@ -1,11 +1,11 @@
-# Content Based Movie Recommendation
+# Content-Based Movie Recommendation
 ## Screenshots of the Web App
 
 ![Preview](./previews/preview.png) 
 
 # Data Collection
 
-I collected over 3000 movie data from an api provided by [TMDB](https://www.themoviedb.org/)
+I collected over 3000 movie data from an API provided by [TMDB](https://www.themoviedb.org/)
 
 ### Sample Data
 
@@ -48,12 +48,12 @@ I collected over 3000 movie data from an api provided by [TMDB](https://www.them
 
 # Feature Extraction
 
-After a bit more cleaning of the collected data, i created a column named 'tags' which contains string version of the genres, overview, kewords, cast & director all are seperated by space(' ').<br>
-Then i used the <b>Stemming technique</b>, after i applied the <b>CountVectorization</b> technique with <b>6000 features</b>, thus i created the <b>features vector</b>.
+After a bit more cleaning of the collected data, I created a column named 'tags' which contains string versions of the genres, overview, keywords, cast & director all seperated by space(' ').<br>
+Then I used the <b>Stemming technique</b>, and after I applied the <b>CountVectorization</b> technique with <b>6000 features</b>, thus I created the <b>features vector</b>.
 
 # Recommendation
 
-There are many ways we can recommend based on content, i used <b>cosine similarity</b> to recommend.<br>
+There are many ways we can recommend based on content, I used <b>cosine similarity</b> to recommend.<br>
 Some other ways include <b>K-Nearest-Neighbour</b> and <b>ANNOY(Approximate Nearest Neighbors)</b> from Spotify.
 
 
@@ -64,7 +64,7 @@ Some other ways include <b>K-Nearest-Neighbour</b> and <b>ANNOY(Approximate Near
 |similarity_df.parquet|calculated similarity data frame|https://github.com/rohit-krish/Movie-Recommendation/raw/main/app/website/static/similarity_df.parquet|
 |combined.parquet     |collected data                  |https://github.com/rohit-krish/Movie-Recommendation/raw/main/data/combined.parquet                   |
 
-## How to use?
+## How to use it?
 
 ```
 git clone git@github.com:rohit-krish/Movie-Recommendation.git
@@ -75,7 +75,7 @@ cd Movie-Recommendation
 pip install -r ./requirements.txt
 ```
 
-<b>Before any thing you should create an account in [TMDB](https://developer.themoviedb.org/docs/getting-started) and paste you API KEY into a .env file</b>
+<b>Before anything you should create an account in [TMDB](https://developer.themoviedb.org/docs/getting-started) and paste you API KEY into a .env file</b>
 
 ```
 echo "API_KEY=<your_api_key>" > .env
@@ -86,20 +86,20 @@ cd app
 python main.py
 ```
 
-## How to deploy in a linux/debian environment?
+## How to deploy in a Linux/Debian environment?
 
 
-- Install nginx
+- Install Nginx
 ```
 sudo apt install nginx
 ```
 - create a configuration for the nginx web server
 <br>
-this configuration will allow nginx to set a reverse proxy for our flask application
+this configuration will allow nginx to set a reverse proxy for our Flask application
 <br>
-the reason we are using the reverse proxy is so that the gunicorn web server that we are using is synchronous and it is vulneralbe to Dos or DDos attacks, since nginx is asynchronous we can use nginx as a reverse proxy as a layer of defence infront of the flask web server.
-<br>
-<b>i'm not saying that just using nginx and the below configuration, your app is safe, actually the app has vulnerabilities(i'm using document.write js function with the response from the server, if any hacker performs Man-in-the-middle-attacks then the server is down pretty much), i'm not caring about it becasue it is just a hobby project of mine, but if anyone wants to use it then you should be know about this, that's why i'm noting it here.</b>
+the reason we are using the reverse proxy is so that the Gunicorn web server that we are using is synchronous and it is vulnerable to Dos or DDos attacks, since nginx is asynchronous we can use nginx as a reverse proxy as a layer of defense in front of the flask web server.
+<br><br>
+<b> I'm not saying that by just using nginx and the below configuration, your app is safe, actually, the app has vulnerabilities(I'm using document.write js function with the response from the server, if any hacker performs Man-in-the-middle-attacks then the server is down pretty much), I'm not caring about it because it is just a hobby project of mine, but if anyone wants to use it then you should know about this, that's why I'm noting it here.</b>
 
 ```
 sudo echo "server {
@@ -120,7 +120,7 @@ sudo nginx -t # check whether the syntax is correct or not
 sudo nginx -s reload
 ```
 
-<b>Now the nginx part is finished, now we have to create run the flask app using gunicorn in http://127.0.0.1:8000; or http://0.0.0.0:8000; </b>
+<b>Now the Nginx part is finished, now we have to create and run the flask app using gunicorn in http://127.0.0.1:8000; or http://0.0.0.0:8000; </b>
 
 ```
 git clone git@github.com:rohit-krish/Movie-Recommendation.git
@@ -131,7 +131,7 @@ cd Movie-Recommendation
 pip install -r ./requirements.txt
 ```
 
-<b>Before any thing you should create an account in [TMDB](https://developer.themoviedb.org/docs/getting-started) and paste you API KEY into a .env file</b>
+<b>Before anything you should create an account in [TMDB](https://developer.themoviedb.org/docs/getting-started) and paste you API KEY into a .env file</b>
 
 ```
 echo "API_KEY=<your_api_key>" > .env
@@ -142,12 +142,12 @@ cd app
 flask --app main:app run # test whether the flask is working fine or not
 ```
 
-- create a gunicorn config file
+- create a Gunicorn config file
 ```
 echo "bind = '0.0.0.0:8000'
 workers = 3 # Adjust the number of workers as needed
-daemon = True # to run the app in background
-" > gunicorn_config.py # this file should be in the `app` directory
+daemon = True # to run the app in the background
+" > gunicorn_config.py # This file should be in the `app` directory
 ```
 
 ```
@@ -162,9 +162,9 @@ sudo pkill -f gunicorn3
 
 ## TODO
 
-- [x] increase the initial movie options
-- [x] implement the search feature
-- [x] search box width problem in mobile phone size
-- [x] pictures in mobile phone size is too large
-- [x] add placeholders before loading the complete UI
-- [ ] when just click the search bar show all movie lists
+- [x] Increase the initial movie options
+- [x] Implement the search feature
+- [x] Solve the search box width problem in mobile phone size
+- [x] pictures in mobile phone size are too large, fix it.
+- [x] Add placeholders before loading the complete UI
+- [ ] When just clicking the search bar show all movie lists.
