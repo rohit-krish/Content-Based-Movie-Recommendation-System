@@ -93,3 +93,4 @@ python main.py
 - [x] search box width problem in mobile phone size
 - [x] pictures in mobile phone size is too large
 - [x] add placeholders before loading the complete UI
+- [ ] when just click the search bar show all movie lists
