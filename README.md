@@ -1,7 +1,11 @@
 # Content-Based Movie Recommendation
+## Screencast of the project
+
+https://youtu.be/Z4OqWqt-nao
+
 ## Screenshots of the Web App
 
-![Preview](./previews/preview.png) 
+![Preview](./previews/preview.png)
 
 # Data Collection
 
