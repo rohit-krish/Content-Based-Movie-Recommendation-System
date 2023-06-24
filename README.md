@@ -162,6 +162,8 @@ gunicorn -c gunicorn_config.py main:app
 ```
 sudo pkill -f gunicorn
 sudo pkill -f gunicorn3
+# or
+sudo killall gunicorn gunicorn3
 ```
 
 ## TODO
