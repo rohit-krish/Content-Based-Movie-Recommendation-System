@@ -1,7 +1,11 @@
 # Content-Based Movie Recommendation
+## Screencast of the project
+
+<a href="https://youtu.be/Z4OqWqt-nao" target="_blank">https://youtu.be/Z4OqWqt-nao</a>
+
 ## Screenshots of the Web App
 
-![Preview](./previews/preview.png) 
+![Preview](./previews/preview.png)
 
 # Data Collection
 
@@ -158,6 +162,8 @@ gunicorn -c gunicorn_config.py main:app
 ```
 sudo pkill -f gunicorn
 sudo pkill -f gunicorn3
+# or
+sudo killall gunicorn gunicorn3
 ```
 
 ## TODO
