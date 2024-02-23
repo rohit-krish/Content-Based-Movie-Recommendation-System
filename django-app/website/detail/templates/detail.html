@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Details{% endblock %}
+
+{% block content %}
+<div class="text-white">
+    <div class="row">
+        <div class="col-sm-6 col-md-5 col-lg-3 pb-3">
+            <img class="img-fluid" src="{{data.poster_path}}" alt="...">
+        </div>
+        <div class="col">
+            <h1>{{data.title}}</h1>
+            <h6 class="text-white-50">
+                {{data.release_date}}
+            </h6>
+            <h5 class="text-white-50">
+                {% for c in data.genres %}{{c}} {% endfor %}
+            </h5>
+            <h2 class="pt-4">
+                Popularity - {{data.popularity}}
+            </h2>
+            <h2 class="pt-4">Overview</h2>
+            <h6>{{data.overview}}</h6>
+
+            <h2 class="pt-4">Director(s)</h2>
+            <h5>
+                {% for d in data.directors %}
+                {{d}} <br>
+                {% endfor %}
+            </h5>
+        </div>
+    </div>
+
+    <div class="row pt-5">
+        <h1>Starcast</h1>
+        <div class="row">
+            {% for c in data.cast %}
+            <div class="card text-bg-dark col-6 col-md-4 col-lg-2 pb-3">
+                <img src="{{c.profile_path}}" class="card-img" alt="...">
+                <div class="card-img-overlay d-flex align-items-end">
+                    <h5 class="card-title" style="text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);">
+                        {{c.name}}
+                    </h5>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row pt-5">
+        <h1>Recommendations</h1>
+        <div class="row">
+            {% for r in data.recommendation_data %}
+            <div class="col-6 col-lg-3 pb-3">
+                <a href="/detail?id={{r.id}}" target="_blank">
+                    <div class="card text-bg-dark" style="box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);">
+                        <img src="{{r.poster_path}}" class="card-img-top" alt="movie poster">
+                        <div class="card-body">
+                            <h5 class="card-title">{{r.title}}</h5>
+                            <p class="card-text">{{r.year}}, {{r.language}}</p>
+                            <h6 class="card-text text-white-50">
+                                {% for g in r.genres %} {{g}}, {% endfor %}
+                            </h6>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WatchIt - {% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="icon" href="{% static 'icons8-movie-50.png' %}" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"
+        defer></script>
+
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        @media (max-width: 768px) {
+            #form {
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 992px) {
+            #form {
+                width: 70%;
+            }
+        }
+
+        @media (min-width: 992px) {
+            #form {
+                width: 50%;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="bg-dark">
+    <nav class="navbar navbar-expand-md sticky-top" style="margin-top: 0; padding-top: 0;">
+        <div class="container bg-dark">
+            <a class="navbar-brand fs-2 text-light" href="/browse">WatchIt</a>
+            <div class="collapse navbar-collapse show" id="navbarCollapse">
+                <form role="search" class="ms-auto" id="form">
+                    <div class="dropdown">
+                        <input class="form-control" id="searchInput" type="search" placeholder="Search..."
+                            aria-label="Search">
+                        <div id="searchDropdown" class="dropdown-menu" aria-labelledby="searchInput"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="{% static 'script.js' %}"></script>
+
+</body>

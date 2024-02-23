@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Browse{% endblock %}
+
+{% block content %}
+
+<h2 class="text-white fw-bold pt-3 pb-3">Popular Movies</h2>
+
+{% for row in indexed_data %}
+<div class="row text-white">
+    {% for item in row %}
+    <div class="col-6 col-lg-3 pb-5">
+        <a href="/detail?id={{ item.id }}" target="_blank">
+            <div class="card text-bg-dark" style="box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);">
+                <img src="{{ item.poster_path }}" class="card-img-top" alt="movie poster">
+                <div class="card-body">
+                    <h4 class="card-title">{{ item.title }}</h4>
+                    <p class="card-text">{{ item.year }}, {{ item.language }}</p>
+                    <p class="card-text text-white-50 fs-6">
+                        {% for genre in item.genres %} {{ genre }}, {% endfor %}
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endfor %}
+
+{% endblock %}

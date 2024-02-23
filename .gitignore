@@ -1,4 +1,7 @@
 .env
 data/*.pkl
-app/website/static/sample_detail_data.pkl
-app/website/__pycache__
+flask-app/website/static/sample_detail_data.pkl
+flask-app/website/__pycache__
+
+django-app/website/website/static/.env
+django-app/website/website/static/*.pkl
